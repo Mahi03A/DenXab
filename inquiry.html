@@ -121,6 +121,24 @@
       }
     });
   </script>
+  <script type="module">
+  import { sendNotificationEmail } from './js/notification.js';
+
+  const form = document.getElementById('inquiryForm');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // 💌 Send mail
+    sendNotificationEmail(email, name);
+
+    // 💸 Redirect to checkout
+    window.location.href = "checkout.html";
+  });
+  </script>
   <script type="module" src="./Submit.js"></script>
 </body>
 </html>
