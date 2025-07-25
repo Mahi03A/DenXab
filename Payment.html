@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Page</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link rel="stylesheet" href="Css.css">
+</head>
+<body>
+  <h1>Pay for Your Website</h1>
+  <button id="payBtn">Pay ₹199</button>
+
+  <script type="module">
+    import { initiatePayment } from './paymentGateway.js';
+
+    document.getElementById("payBtn").addEventListener("click", () => {
+      const name = "Customer"; // optionally fetch from localStorage or query
+      const email = "user@example.com";
+      const amount = 199;
+      const orderId = "ab-" + Date.now();
+      initiatePayment(name, email, amount, orderId);
+    });
+  </script>
+</body>
+</html>
